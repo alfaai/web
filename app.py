@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, send_file
 from inference import sticker, pulid
 from werkzeug.utils import secure_filename
 import os
-import tempfile
 
 app = Flask(__name__)
 
