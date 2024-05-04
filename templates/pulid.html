@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulid</title>
+</head>
+<body>
+    <form method="post" enctype="multipart/form-data">
+        <label for="img">Upload Image:</label>
+        <input type="file" name="img" id="img">
+        <br>
+        <label for="prompt">Prompt:</label>
+        <input type="text" name="prompt" id="prompt">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    {% if img %}
+        <img src="{{ img }}" alt="Processed Image">
+    {% endif %}
+</body>
+</html>
