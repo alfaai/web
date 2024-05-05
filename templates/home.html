@@ -2,15 +2,25 @@
 
 {% block content %}
 <html>
-    <h1 style="font-weight: bolder; color: #1C1F22; justify-content: center; display: flex;">One website</h1>
+    <h1 style="font-weight: bolder; color: #2B2D42; justify-content: center; display: flex;">One website</h1>
     <h1 style="font-weight: bolder; color: #64a3e3; justify-content: center; display: flex;">ALL possibilities</h1>
-    <h1 style="font-weight: bolder; color: #1C1F22; justify-content: center; display: flex;">using AI for everyone.</h1>
+    <h1 style="font-weight: bolder; color: #2B2D42; justify-content: center; display: flex;">using AI for everyone.</h1>
 
-    <div style="text-align: center; margin-top: 20px; font-size: 25px">
-        <a href="sticker" style="margin-right: 20px;">Sticker Maker</a>
-        <a href="pulid">
-            <img src="https://replicate.delivery/pbxt/rhYCCxWHrnIYGJJ25kHHqetfXywNHUwHn3dRfRoXOFBCnmilA/output_image_0.webp" style="width:42px;height:42px;">
-        </a>
+    <div style="text-align: center;  margin-top: 20px;  display: grid;  grid-template-columns: 1fr 1fr 1fr;">
+
+        <div>
+            <a href="sticker">
+                <img src="/static/sticker.webp" style="width:150px;height:150px;border-radius: 10px;border: 2px solid #8D99AE;">
+            </a>
+            <p>Make stickers with plain text.</p>
+        </div>
+
+        <div>
+            <a href="pulid">
+                <img src="/static/style.png" style="width:150px;height:150px;border-radius: 10px;border: 2px solid #8D99AE;">
+            </a>
+            <p>Transform your portrait to anything you imagine.</p>
+        <div>
     </div>
 </html>
 {% endblock %}
