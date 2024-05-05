@@ -1,19 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+
+{% block content %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sticker</title>
+    <title>Sticker Maker</title>
+    <style>
+        input[type="text"],
+        input[type="submit"] {
+            padding: 10px;
+            border: 1px solid #BDC6D1;
+            border-radius: 8px; /* Rounded corners */
+            font-size: 16px;
+            display: block;
+            margin: 0 auto; /* Centering */
+            margin-top: 20px; /* Adjust spacing */
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #2B2D42;
+            color: #EDF2F4;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition-duration: 200ms;
+        }
+        input[type="submit"]:hover {
+            background-color: #8D99AE;
+        }
+    </style>
 </head>
 <body>
+
     <form method="post" enctype="multipart/form-data">
-        <label for="prompt">Prompt:</label>
-        <input type="text" name="prompt" id="prompt">
-        <br>
-        <input type="submit" value="Submit">
+        <input type="text" name="prompt" id="prompt" placeholder="Sticker's appereance">
+        <input type="submit" value="Generate sticker 🖌️">
     </form>
     {% if img %}
         <img src="{{ img }}" alt="Processed Image">
     {% endif %}
+
 </body>
-</html>
+{% endblock %}
