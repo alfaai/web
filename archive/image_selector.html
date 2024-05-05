@@ -1,0 +1,22 @@
+<form id="myForm" action="/hello" method="get" enctype="multipart/form-data">
+    <button type="button" onclick="setButtonValue('cat')" name="cat" id="cat">
+        <img src="E:\web\assets\cat.webp">
+    </button>
+
+    <button type="button" onclick="setButtonValue('car')" name="car" id="car">
+        <img src="E:\web\assets\car.webp">
+    </button>
+
+    <button type="button" onclick="setButtonValue('man')" name="man" id="man">
+        <img src="E:\web\assets\man.webp">
+    </button>
+
+    <input type="hidden" id="selectedButton" name="a">
+    <input type="submit">
+</form>
+
+<script>
+    function setButtonValue(buttonId) {
+        document.getElementById('selectedButton').value = buttonId;
+    }
+</script>
