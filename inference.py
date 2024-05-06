@@ -32,3 +32,28 @@ def pulid(inp_img, prompt):
     )[0]
 
     return output
+
+
+def face_sticker(inp_img, prompt):
+
+    if len(prompt) != 0:
+        input = {
+            "image": inp_img,
+            "prompt": prompt,
+            "prompt_strength": 4.5,
+            "instant_id_strength": .7
+        }
+    else:
+        input = {
+            "image": inp_img,
+            "prompt": "a person",
+            "prompt_strength": 4.5,
+            "instant_id_strength": .7
+        }
+
+    output = replicate.run(
+        "fofr/face-to-sticker:764d4827ea159608a07cdde8ddf1c6000019627515eb02b6b449695fd547e5ef",
+        input=input
+    )[1]
+
+    return output
