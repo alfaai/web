@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request, send_file
 from werkzeug.utils import secure_filename
 import os
-from inference import sticker, pulid, face_sticker
+
+from inference_replicate import sticker, pulid
+
 
 app = Flask(__name__)
 
@@ -34,24 +36,8 @@ def pulid_endpoint():
             filename = secure_filename(file.filename)
             file.save(os.path.join(UPLOADS_PATH, filename))
 
-            img_link = pulid(open(os.path.join(UPLOADS_PATH, filename), "rb"), prompt)
+            img_link = pulid(os.path.join(UPLOADS_PATH, filename), prompt)
             os.remove(os.path.join(UPLOADS_PATH, filename))
             return render_template('pulid.html', img=img_link)
     else:
         return render_template('pulid.html')
-
-
-@app.route('/face_sticker', methods=['GET', 'POST'])
-def face_sticker_endpoint():
-    if request.method == 'POST':
-        prompt = request.form['prompt']
-        file = request.files['img']
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(UPLOADS_PATH, filename))
-
-            img_link = face_sticker(open(os.path.join(UPLOADS_PATH, filename), "rb"), prompt)
-            os.remove(os.path.join(UPLOADS_PATH, filename))
-            return render_template('face_sticker.html', img=img_link)
-    else:
-        return render_template('face_sticker.html')
